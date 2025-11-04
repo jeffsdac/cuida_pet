@@ -1,5 +1,6 @@
 package br.com.cuidapet.cuidapet.models.Usuario;
 
+import br.com.cuidapet.cuidapet.models.BaseModelClass;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,8 @@ import java.util.UUID;
 @Table(name="T_CUIDAPET_USUARIO")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Usuario extends BaseModelClass {
+@Entity
+public class UsuarioModel extends BaseModelClass {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
