@@ -1,6 +1,7 @@
 package br.com.cuidapet.cuidapet.controllers;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/alive")
 public class ImAliveController {
 
+    @GetMapping
     public ResponseEntity<String> ImAlive() {
         return ResponseEntity.ok("I AM I AM I AM");
     }
