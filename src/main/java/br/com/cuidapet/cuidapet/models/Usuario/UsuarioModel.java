@@ -1,10 +1,13 @@
 package br.com.cuidapet.cuidapet.models.Usuario;
 
 import br.com.cuidapet.cuidapet.models.BaseModelClass;
+import br.com.cuidapet.cuidapet.models.PrestacaoServico.PrestacaoServicoModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Table(name="T_CUIDAPET_USUARIO")
@@ -29,7 +32,8 @@ public class UsuarioModel extends BaseModelClass {
     @Column(nullable = false, length = 350)
     private String email;
 
-
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PrestacaoServicoModel> prestacoes = new ArrayList<>();
     // private String password;
     // Implementar com springSecurity depois;
 

@@ -1,11 +1,13 @@
 package br.com.cuidapet.cuidapet.models.Pet;
 
 import br.com.cuidapet.cuidapet.models.BaseModelClass;
+import br.com.cuidapet.cuidapet.models.PrestacaoServico.PrestacaoServicoModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -28,6 +30,9 @@ public class PetModel extends BaseModelClass {
 
     @Column(length = 500)
     private String observacoes;
+
+    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PrestacaoServicoModel> prestacoes;
 
     @Column(nullable = false, length = 25)
     private String tipo;
