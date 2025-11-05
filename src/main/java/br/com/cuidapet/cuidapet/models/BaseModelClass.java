@@ -1,4 +1,4 @@
-package br.com.cuidapet.cuidapet.models.Usuario;
+package br.com.cuidapet.cuidapet.models;
 
 
 import jakarta.persistence.Column;
