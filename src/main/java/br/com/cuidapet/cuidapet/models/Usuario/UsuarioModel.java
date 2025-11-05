@@ -1,7 +1,7 @@
-package br.com.cuidapet.cuidapet.models.Usuario;
+package br.com.cuidapet.cuidapet.models.usuario;
 
 import br.com.cuidapet.cuidapet.models.BaseModelClass;
-import br.com.cuidapet.cuidapet.models.PrestacaoServico.PrestacaoServicoModel;
+import br.com.cuidapet.cuidapet.models.prestacaoServico.PrestacaoServicoModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
