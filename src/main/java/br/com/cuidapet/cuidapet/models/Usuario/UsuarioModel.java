@@ -18,10 +18,10 @@ public class UsuarioModel extends BaseModelClass {
     private UUID id;
 
     @Column(nullable = false, length = 30)
-    private String primeiro_nome;
+    private String primeiroNome;
 
     @Column(nullable = false, length = 30)
-    private String ultimo_nome;
+    private String ultimoNome;
 
     @Column(length = 11)
     private String cpf;
