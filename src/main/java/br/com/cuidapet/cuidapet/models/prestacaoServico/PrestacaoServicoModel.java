@@ -1,8 +1,9 @@
-package br.com.cuidapet.cuidapet.models.PrestacaoServico;
+package br.com.cuidapet.cuidapet.models.prestacaoServico;
 
 import br.com.cuidapet.cuidapet.models.BaseModelClass;
-import br.com.cuidapet.cuidapet.models.Pet.PetModel;
-import br.com.cuidapet.cuidapet.models.Usuario.UsuarioModel;
+import br.com.cuidapet.cuidapet.models.funcionario.FuncionarioModel;
+import br.com.cuidapet.cuidapet.models.pet.PetModel;
+import br.com.cuidapet.cuidapet.models.usuario.UsuarioModel;
 import jakarta.persistence.*;
 
 import java.time.Instant;
@@ -32,6 +33,10 @@ public class PrestacaoServicoModel extends BaseModelClass {
     @ManyToOne
     @JoinColumn(name = "pet_id", nullable = false)
     private PetModel pet;
+
+    @ManyToOne
+    @JoinColumn(name = "funcionario_id", nullable = false)
+    private FuncionarioModel funcionario;
 
 
     private String status;
