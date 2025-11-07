@@ -28,10 +28,10 @@ public class UsuarioModel extends BaseModelClass {
     @Column(nullable = false, length = 30)
     private String ultimoNome;
 
-    @Column(length = 11)
+    @Column(length = 11, unique = true)
     private String cpf;
 
-    @Column(nullable = false, length = 350)
+    @Column(nullable = false, length = 350, unique = true)
     private String email;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
