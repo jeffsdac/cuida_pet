@@ -22,7 +22,7 @@ public class PetService {
                 .dataDeNascimento(dto.dataDeNascimento())
                 .ultimoNome(dto.ultimoNome())
                 .tipo(dto.tipo())
-                .observacoes(dto.obseracoes())
+                .observacoes(dto.observacoes())
                 .build();
 
         return petRepository.save(petModel);
