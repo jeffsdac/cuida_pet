@@ -26,13 +26,13 @@ public class PetController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PetSenderDTO> findById (@RequestParam UUID id){
+    public ResponseEntity<PetSenderDTO> findById (@PathVariable UUID id){
         var petModel = petService.findById(id);
         return ResponseEntity.status(HttpStatus.CREATED).body( new PetSenderDTO( petModel.getPrimeiroNome() ) );
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PetSenderDTO> updateById (@RequestParam UUID id, @RequestBody PetUpdateDTO dto){
+    public ResponseEntity<PetSenderDTO> updateById (@PathVariable UUID id, @RequestBody PetUpdateDTO dto){
         var petModel = petService.updatePet(id, dto);
         return ResponseEntity.status(HttpStatus.OK).body( new PetSenderDTO ( petModel.getPrimeiroNome() ) );
     }
