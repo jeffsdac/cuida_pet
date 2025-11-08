@@ -3,8 +3,7 @@ package br.com.cuidapet.cuidapet.models.pet;
 import br.com.cuidapet.cuidapet.models.BaseModelClass;
 import br.com.cuidapet.cuidapet.models.prestacaoServico.PrestacaoServicoModel;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.Instant;
 import java.util.List;
@@ -13,6 +12,9 @@ import java.util.UUID;
 @Entity
 @Table(name = "T_CUIDAPET_PET")
 @NoArgsConstructor
+@Builder
+@Getter
+@Setter
 @AllArgsConstructor
 public class PetModel extends BaseModelClass {
 
