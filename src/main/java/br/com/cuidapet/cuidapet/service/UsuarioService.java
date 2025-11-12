@@ -1,5 +1,6 @@
 package br.com.cuidapet.cuidapet.service;
 
+import br.com.cuidapet.cuidapet.exceptions.LoginErrado;
 import br.com.cuidapet.cuidapet.exceptions.UsuarioNaoEncontrado;
 import br.com.cuidapet.cuidapet.models.usuario.UsuarioModel;
 import br.com.cuidapet.cuidapet.models.usuario.dtos.UsuarioCreateDTO;
@@ -42,6 +43,11 @@ public class UsuarioService {
         userModel.setUltimoNome(dto.ultimoNome());
 
         return usuarioRepository.save(userModel);
+    }
+
+    public UsuarioModel findByEmail(String email){
+        return usuarioRepository.findByEmail(email)
+                .orElseThrow(LoginErrado::new);
     }
 
 

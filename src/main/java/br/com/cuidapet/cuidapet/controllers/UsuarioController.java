@@ -1,6 +1,7 @@
 package br.com.cuidapet.cuidapet.controllers;
 
 import br.com.cuidapet.cuidapet.models.usuario.dtos.UsuarioCreateDTO;
+import br.com.cuidapet.cuidapet.models.usuario.dtos.UsuarioLoginDTO;
 import br.com.cuidapet.cuidapet.models.usuario.dtos.UsuarioSenderDTO;
 import br.com.cuidapet.cuidapet.models.usuario.dtos.UsuarioUpdateDTO;
 import br.com.cuidapet.cuidapet.service.UsuarioService;
@@ -33,6 +34,12 @@ public class UsuarioController {
     @PutMapping("/{id}")
     public ResponseEntity<UsuarioSenderDTO> updateById (@PathVariable UUID id, @RequestBody UsuarioUpdateDTO dto){
         var modelUser = usuarioService.updateUsuario(id, dto);
+        return ResponseEntity.status(HttpStatus.OK).body( new UsuarioSenderDTO(modelUser.getEmail()) );
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<UsuarioSenderDTO> loginByEmail(@RequestBody UsuarioLoginDTO dto){
+        var modelUser = usuarioService.findByEmail(dto.email());
         return ResponseEntity.status(HttpStatus.OK).body( new UsuarioSenderDTO(modelUser.getEmail()) );
     }
 

@@ -1,5 +1,6 @@
 package br.com.cuidapet.cuidapet.infra.advice;
 
+import br.com.cuidapet.cuidapet.exceptions.LoginErrado;
 import br.com.cuidapet.cuidapet.exceptions.PetNaoEncontrado;
 import br.com.cuidapet.cuidapet.exceptions.UsuarioNaoEncontrado;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,12 @@ public class RestExceptionHandler {
     private ResponseEntity<RestErrorMessage> handleUsuarioNotFind (UsuarioNaoEncontrado e){
         var respostaTratada = new RestErrorMessage( HttpStatus.NOT_FOUND, e.getMessage() );
         return ResponseEntity.status( HttpStatus.NOT_FOUND).body(respostaTratada);
+    }
+
+    @ExceptionHandler(LoginErrado.class)
+    private ResponseEntity<RestErrorMessage> handleLoginErrado (LoginErrado e){
+        var respostaTratada = new RestErrorMessage( HttpStatus.UNAUTHORIZED, e.getMessage() );
+        return ResponseEntity.status( HttpStatus.UNAUTHORIZED ).body(respostaTratada);
     }
 
     @ExceptionHandler(Exception.class)
